@@ -1,5 +1,6 @@
 # OECN 2026 Automating Excel Spreadsheets
 This repo contains project examples from the Automating Excel Spreadsheets with Python session at OECN United 2026.
+NOTE - the virtual envirnment used for the demonstration can not be uploaded to github. If you download this project you will need to install python and the libraries used for this project. The libraries can be found in the requirements.txt file in each project folder.
 
 Project 1: Password Reminder Project - Easy:
 This project looks through all districts in the input folder and looks for a USAS User Report.csv file and a USPS User Report.csv file. The file names do matter. It determines which application to write to the output file based on the application within the file name. The reports used to create these files are in the SSDT report json files in the Password Reminder Project - Easy folder. There are two files. One for the USAS application and one for the USPS application. These reports pull information from the Users grid in USAS and USPS.
@@ -23,9 +24,6 @@ All file paths can be defined in the config.ini files.
 Note about emails:
 By default, emailing will not work. They were removed so this could publicaly be posted on git hub. The config files must be updated with proper email addresses, host numbers, port numbers, and server names.
 If the sending email address has a password, the code must be edited to use a password from the config.ini files.
-
-
-The 2 projects contain a requirements.txt file which list the python libraries necessary for the project. Python has a command that can read this txt file and download the same libraries.
 
 Projects were created by Jon Pyles at NOACSC.
 
