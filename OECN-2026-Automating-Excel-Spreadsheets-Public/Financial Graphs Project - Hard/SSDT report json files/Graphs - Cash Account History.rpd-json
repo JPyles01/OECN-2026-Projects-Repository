@@ -1,0 +1,276 @@
+---
+reportDefinition: !<org.ssdt_ohio.reporting.AdhocReportDefinition>
+  description: "CashAccountHistory Report"
+  tags: "EXCEL GRAPH"
+  predefined: false
+  parameters: !<org.ssdt_ohio.reporting.AdhocReportParameters>
+    pageSize: "LETTER"
+    pageOrientation: "LANDSCAPE"
+    outputFormat: "CSV"
+    templateName: "Graphs - Cash Account History"
+    suppressDetail: false
+    showOptions: true
+    sortProperties: !<java.util.ArrayList>
+    - !<java.util.ArrayList>
+      propertyName: "account.fullAccountCode"
+      label: "Full Account Code"
+      ascending: true
+      controlBreak: false
+      pageBreak: false
+    - propertyName: "fiscalPeriod.fiscalYear"
+      label: "Fiscal Year"
+      ascending: true
+      controlBreak: false
+      pageBreak: false
+    queryParameters: !<java.util.LinkedHashMap> {}
+  title: "Graphs - Cash Account History"
+  titleLabel: ""
+  querySpecification:
+    specification: "cashAccount.fullAccountCode.oneOf ([param(\"cashAccount\",'',\"\
+      Cash Account(s) (i.e. 006-0000)\")])\nfiscalPeriod.fiscalYear.oneOf ([param(\"\
+      fiscalYear\",'',\"Fiscal Year(s)\")])\naccount.filter.eq param(\"Filter Name\"\
+      ,\"\")\nasOfPeriod.eq param(\"asOfPeriod\",\"\",\"Total As Of Period\")"
+    querySpecParameters: !<java.util.ArrayList> []
+  entity: "org.ssdt_ohio.usas.model.accountHistory.CashAccountHistory"
+  properties: !<java.util.ArrayList>
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Full Account Code"
+    type: "java.lang.String"
+    propertyName: "fullAccountCode"
+    propertyPath: "account"
+    entityName: "Account"
+    sortOrder: 1
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: null
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 36
+    relativePropertyName: "account.fullAccountCode"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList>
+      - "account"
+    suppressRepeating: true
+    columnOrder: 1
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Description"
+    type: "java.lang.String"
+    propertyName: "description"
+    propertyPath: "account"
+    entityName: "Account"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: null
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 25
+    relativePropertyName: "account.description"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList>
+      - "account"
+    suppressRepeating: true
+    columnOrder: 2
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Active"
+    type: "java.lang.Boolean"
+    propertyName: "active"
+    propertyPath: "cashAccount"
+    entityName: "Account"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Active"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 8
+    relativePropertyName: "cashAccount.active"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "cashAccount"
+    suppressRepeating: false
+    columnOrder: 3
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Received"
+    type: "java.math.BigDecimal"
+    propertyName: "received"
+    propertyPath: "periodAmounts"
+    entityName: "PeriodAmount"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "FIELD"
+    label: null
+    columnTitle: "MTD Received"
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "received"
+    dataSourcePath:
+      path: !<java.util.ArrayList>
+      - "periodAmounts"
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 4
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Expended"
+    type: "java.math.BigDecimal"
+    propertyName: "expended"
+    propertyPath: "periodAmounts"
+    entityName: "PeriodAmount"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "FIELD"
+    label: null
+    columnTitle: "MTD Expended"
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "expended"
+    dataSourcePath:
+      path: !<java.util.ArrayList>
+      - "periodAmounts"
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 5
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Ending Balance"
+    type: "java.math.BigDecimal"
+    propertyName: "endingBalance"
+    propertyPath: "periodAmounts"
+    entityName: "PeriodAmount"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "FIELD"
+    label: null
+    columnTitle: "Month End Balance"
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "endingBalance"
+    dataSourcePath:
+      path: !<java.util.ArrayList>
+      - "periodAmounts"
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 6
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Month Name"
+    type: "java.lang.String"
+    propertyName: "monthName"
+    propertyPath: "periodAmounts.postingPeriod"
+    entityName: "PostingPeriod"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "METHOD"
+    label: ""
+    columnTitle: null
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "postingPeriod.monthName"
+    dataSourcePath:
+      path: !<java.util.ArrayList>
+      - "periodAmounts"
+      currentPath: !<java.util.ArrayList>
+      - "postingPeriod"
+    suppressRepeating: false
+    columnOrder: 7
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Fiscal Year"
+    type: "java.lang.Integer"
+    propertyName: "fiscalYear"
+    propertyPath: "fiscalPeriod"
+    entityName: "FiscalPeriod"
+    sortOrder: 2
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: "NATURALID"
+    source: "FIELD"
+    label: ""
+    columnTitle: null
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "fiscalPeriod.fiscalYear"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList>
+      - "fiscalPeriod"
+    suppressRepeating: true
+    columnOrder: 8
+    permission: null

@@ -1,0 +1,456 @@
+---
+reportDefinition: !<org.ssdt_ohio.reporting.AdhocReportDefinition>
+  description: "RevenueAccount Report"
+  tags: "EXCEL GRAPH"
+  predefined: false
+  parameters: !<org.ssdt_ohio.reporting.AdhocReportParameters>
+    pageSize: "LETTER"
+    pageOrientation: "PORTRAIT"
+    outputFormat: "CSV"
+    templateName: "Graphs - Revenue Pie Chart"
+    suppressDetail: false
+    showOptions: true
+    sortProperties: !<java.util.ArrayList>
+    - !<java.util.ArrayList>
+      propertyName: "code.receiptOneDigitLevel"
+      label: "Receipt One Digit Level"
+      ascending: true
+      controlBreak: true
+      pageBreak: false
+    - propertyName: "code.receiptTwoDigitLevel"
+      label: "Receipt Two Digit Level"
+      ascending: true
+      controlBreak: false
+      pageBreak: false
+    - propertyName: "fullAccountCode"
+      label: "Full Account Code"
+      ascending: true
+      controlBreak: false
+      pageBreak: false
+    queryParameters: !<java.util.LinkedHashMap> {}
+  title: "Graphs - Revenue Pie Chart"
+  titleLabel: ""
+  querySpecification:
+    specification: "cashAccount.fullAccountCode.oneOf ([param(\"cashAccount\",'',\"\
+      Cash Account(s) (i.e. 006-0000)\")])\nasOfPeriod.eq param(\"asOfPeriod\",\"\"\
+      ,\"As Of Period\")\nFYTDReceived.gt '0'"
+    querySpecParameters: !<java.util.ArrayList> []
+  entity: "org.ssdt_ohio.usas.model.account.RevenueAccount"
+  properties: !<java.util.ArrayList>
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Fund"
+    type: "java.lang.String"
+    propertyName: "fund"
+    propertyPath: "code"
+    entityName: "AccountCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: null
+    columnTitle: "Fund"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.fund"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 1
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "SCC"
+    type: "java.lang.String"
+    propertyName: "scc"
+    propertyPath: "code"
+    entityName: "AccountCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: null
+    columnTitle: "SCC"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.scc"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 2
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Full Account Code"
+    type: "java.lang.String"
+    propertyName: "fullAccountCode"
+    propertyPath: "cashAccount"
+    entityName: "Account"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Cash Account"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 36
+    relativePropertyName: "cashAccount.fullAccountCode"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "cashAccount"
+    suppressRepeating: false
+    columnOrder: 3
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Full Account Code"
+    type: "java.lang.String"
+    propertyName: "fullAccountCode"
+    propertyPath: null
+    entityName: "Account"
+    sortOrder: 3
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Full Account Code"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 36
+    relativePropertyName: "fullAccountCode"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 4
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Receipt One Digit Level"
+    type: "java.lang.String"
+    propertyName: "receiptOneDigitLevel"
+    propertyPath: "code"
+    entityName: "RevenueCode"
+    sortOrder: 1
+    controlBreak: true
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Receipt One Digit Level"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.receiptOneDigitLevel"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 5
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Receipt Two Digit Level"
+    type: "java.lang.String"
+    propertyName: "receiptTwoDigitLevel"
+    propertyPath: "code"
+    entityName: "RevenueCode"
+    sortOrder: 2
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Receipt Two Digit Level"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.receiptTwoDigitLevel"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 6
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Receipt"
+    type: "java.lang.String"
+    propertyName: "receipt"
+    propertyPath: "code"
+    entityName: "RevenueCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Receipt"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.receipt"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 7
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Description"
+    type: "java.lang.String"
+    propertyName: "description"
+    propertyPath: null
+    entityName: "Account"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: null
+    columnTitle: "Description"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 25
+    relativePropertyName: "description"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 8
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Subject"
+    type: "java.lang.String"
+    propertyName: "subject"
+    propertyPath: "code"
+    entityName: "GeneralLedgerCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: null
+    columnTitle: "Subject"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.subject"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 9
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "OPU"
+    type: "java.lang.String"
+    propertyName: "opu"
+    propertyPath: "code"
+    entityName: "GeneralLedgerCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: null
+    columnTitle: "OPU"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.opu"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 10
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "MTD Received"
+    type: "java.math.BigDecimal"
+    propertyName: "MTDReceived"
+    propertyPath: null
+    entityName: "RevenueAccount"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "METHOD"
+    label: null
+    columnTitle: "MTD Received"
+    alignment: "RIGHT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "MTDReceived"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 11
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "FYTD Received"
+    type: "java.math.BigDecimal"
+    propertyName: "FYTDReceived"
+    propertyPath: "anticipatedRevenue"
+    entityName: "AnticipatedRevenue"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "METHOD"
+    label: "FYTD Received"
+    columnTitle: "FYTD Received"
+    alignment: "RIGHT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "anticipatedRevenue.FYTDReceived"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "anticipatedRevenue"
+    suppressRepeating: false
+    columnOrder: 12
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "FYTD Receivable"
+    type: "java.math.BigDecimal"
+    propertyName: "FYTDReceivable"
+    propertyPath: "anticipatedRevenue"
+    entityName: "AnticipatedRevenue"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "METHOD"
+    label: "FYTD Receivable"
+    columnTitle: "FYTD Receivable"
+    alignment: "RIGHT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "anticipatedRevenue.FYTDReceivable"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "anticipatedRevenue"
+    suppressRepeating: false
+    columnOrder: 13
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Percent Available"
+    type: "java.math.BigDecimal"
+    propertyName: "percentAvailable"
+    propertyPath: "anticipatedRevenue"
+    entityName: "AnticipatedRevenue"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "PERCENT"
+    source: "METHOD"
+    label: null
+    columnTitle: "Percent Available"
+    alignment: "RIGHT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "anticipatedRevenue.percentAvailable"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "anticipatedRevenue"
+    suppressRepeating: false
+    columnOrder: 14
+    permission: null

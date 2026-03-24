@@ -1,0 +1,786 @@
+---
+reportDefinition: !<org.ssdt_ohio.reporting.AdhocReportDefinition>
+  description: "ExpenditureAccount Report"
+  tags: "EXCEL GRAPH"
+  predefined: false
+  parameters: !<org.ssdt_ohio.reporting.AdhocReportParameters>
+    pageSize: "LETTER"
+    pageOrientation: "LANDSCAPE"
+    outputFormat: "CSV"
+    templateName: "Graphs - Expenditures Pie Chart"
+    suppressDetail: false
+    showOptions: true
+    sortProperties: !<java.util.ArrayList>
+    - !<java.util.ArrayList>
+      propertyName: "cashAccount.fullAccountCode"
+      label: "Full Account Code"
+      ascending: true
+      controlBreak: true
+      pageBreak: false
+    - propertyName: "fullAccountCode"
+      label: "Full Account Code"
+      ascending: true
+      controlBreak: false
+      pageBreak: false
+    queryParameters: !<java.util.LinkedHashMap> {}
+  title: "Graphs - Expenditures Pie Chart"
+  titleLabel: ""
+  querySpecification:
+    specification: "cashAccount.fullAccountCode.oneOf ([param(\"cashAccount\",'',\"\
+      Cash Account(s) (i.e. 006-0000)\")])\nfullAccountCode.oneOf ([param(\"fullAccountCode\"\
+      ,'',\"Include Full Account Code (i.e. 001-1110-511-0000-000000-001-00-000)\"\
+      )])\ncode.fund.like param(\"includecode.fund\",\"\",\"Include Fund (use % for\
+      \ wildcard)\")\ncode.func.like param(\"includecode.func\",\"\",\"Include Function\
+      \ (use % for wildcard)\")\ncode.object.like param(\"includecode.object\",\"\"\
+      ,\"Include Object (use % for wildcard)\")\ncode.scc.like param(\"includecode.scc\"\
+      ,\"\",\"Include SCC (use % for wildcard)\")\ncode.subject.like param(\"includecode.subject\"\
+      ,\"\",\"Include Subject (use % for wildcard)\")\ncode.opu.like param(\"includecode.opu\"\
+      ,\"\",\"Include OPU (use % for wildcard)\")\ncode.il.like param(\"includecode.il\"\
+      ,\"\",\"Include IL (use % for wildcard)\")\ncode.job.like param(\"includecode.job\"\
+      ,\"\",\"Include Job (use % for wildcard)\")\nactive.oneOf ([param(\"active\"\
+      ,'',\"Active only? (true/false)\")])\nasOfPeriod.eq param(\"asOfPeriod\",\"\"\
+      ,\"Total As of Period (If a date is specified FYTD, MTD and Encumbrance amounts\
+      \ will be calculated as of that period)\")\nfilter.eq param(\"Filter Name\"\
+      ,\"\")\nallAmountsZero.ne param(\"allAmountsZero\",\"\", \"Exclude Accounts\
+      \ with Zero Amounts? (true/false)  Leave blank to include all accounts\")"
+    querySpecParameters: !<java.util.ArrayList> []
+  entity: "org.ssdt_ohio.usas.model.account.ExpenditureAccount"
+  properties: !<java.util.ArrayList>
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Full Account Code"
+    type: "java.lang.String"
+    propertyName: "fullAccountCode"
+    propertyPath: "cashAccount"
+    entityName: "Account"
+    sortOrder: 1
+    controlBreak: true
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "METHOD"
+    label: null
+    columnTitle: "Cash Account"
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 36
+    relativePropertyName: "cashAccount.fullAccountCode"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: true
+    columnOrder: 1
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Full Account Code"
+    type: "java.lang.String"
+    propertyName: "fullAccountCode"
+    propertyPath: null
+    entityName: "Account"
+    sortOrder: 2
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: null
+    label: null
+    columnTitle: "Expenditure Account"
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 24
+    relativePropertyName: "fullAccountCode"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 2
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Description"
+    type: "java.lang.String"
+    propertyName: "description"
+    propertyPath: null
+    entityName: "Account"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: null
+    label: null
+    columnTitle: " "
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: true
+    width: 24
+    relativePropertyName: "description"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 3
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "FYTD Appropriated"
+    type: "java.math.BigDecimal"
+    propertyName: "FYTDAppropriated"
+    propertyPath: "budget"
+    entityName: "Budget"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "METHOD"
+    label: null
+    columnTitle: null
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 16
+    relativePropertyName: "budget.FYTDAppropriated"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 4
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Prior Year Encumbrance"
+    type: "java.math.BigDecimal"
+    propertyName: "priorYearEncumbrance"
+    propertyPath: "budget"
+    entityName: "Budget"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "METHOD"
+    label: null
+    columnTitle: "Prior Yr Enc"
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 12
+    relativePropertyName: "budget.priorYearEncumbrance"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 5
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "FYTD Expendable"
+    type: "java.math.BigDecimal"
+    propertyName: "FYTDExpendable"
+    propertyPath: "budget"
+    entityName: "Budget"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "METHOD"
+    label: null
+    columnTitle: null
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 16
+    relativePropertyName: "budget.FYTDExpendable"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 6
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "FYTD Expended"
+    type: "java.math.BigDecimal"
+    propertyName: "FYTDExpended"
+    propertyPath: "budget"
+    entityName: "Budget"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "METHOD"
+    label: null
+    columnTitle: null
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 16
+    relativePropertyName: "budget.FYTDExpended"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 7
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "MTD Expended"
+    type: "java.math.BigDecimal"
+    propertyName: "MTDExpended"
+    propertyPath: "budget"
+    entityName: "Budget"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "METHOD"
+    label: null
+    columnTitle: null
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "budget.MTDExpended"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 8
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Encumbrance"
+    type: "java.math.BigDecimal"
+    propertyName: "currentEncumbrance"
+    propertyPath: "budget"
+    entityName: "Budget"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "METHOD"
+    label: null
+    columnTitle: null
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 16
+    relativePropertyName: "budget.currentEncumbrance"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 9
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Future Encumbrance"
+    type: "java.math.BigDecimal"
+    propertyName: "futureEncumbrance"
+    propertyPath: "budget"
+    entityName: "Budget"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "METHOD"
+    label: null
+    columnTitle: "Future Enc"
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 10
+    relativePropertyName: "budget.futureEncumbrance"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 10
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "FYTD Unencumbered"
+    type: "java.math.BigDecimal"
+    propertyName: "FYTDUnencumbered"
+    propertyPath: "budget"
+    entityName: "Budget"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: "Sum"
+    baseClassProperty: false
+    format: "CURRENCY"
+    source: "METHOD"
+    label: null
+    columnTitle: null
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 16
+    relativePropertyName: "budget.FYTDUnencumbered"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 11
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Percent Expended/Encumbered"
+    type: "java.math.BigDecimal"
+    propertyName: "percentExpendedEncumbered"
+    propertyPath: null
+    entityName: "ExpenditureAccount"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: "PERCENT"
+    source: "METHOD"
+    label: "Percent Expended/Encumbered"
+    columnTitle: "% Exp/Enc"
+    alignment: null
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 9
+    relativePropertyName: "percentExpendedEncumbered"
+    dataSourcePath:
+      path: !<java.util.ArrayList> []
+      currentPath: !<java.util.ArrayList> []
+    suppressRepeating: false
+    columnOrder: 12
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Fund"
+    type: "java.lang.String"
+    propertyName: "fund"
+    propertyPath: "code"
+    entityName: "AccountCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Fund"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.fund"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 13
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Func"
+    type: "java.lang.String"
+    propertyName: "func"
+    propertyPath: "code"
+    entityName: "ExpenditureCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Func"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.func"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 14
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Function One Digit Level"
+    type: "java.lang.String"
+    propertyName: "functionOneDigitLevel"
+    propertyPath: "code"
+    entityName: "ExpenditureCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Function One Digit Level"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.functionOneDigitLevel"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 15
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Function Two Digit Level"
+    type: "java.lang.String"
+    propertyName: "functionTwoDigitLevel"
+    propertyPath: "code"
+    entityName: "ExpenditureCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Function Two Digit Level"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.functionTwoDigitLevel"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 16
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Object"
+    type: "java.lang.String"
+    propertyName: "object"
+    propertyPath: "code"
+    entityName: "ExpenditureCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Object"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.object"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 17
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Object One Digit Level"
+    type: "java.lang.String"
+    propertyName: "objectOneDigitLevel"
+    propertyPath: "code"
+    entityName: "ExpenditureCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Object Level"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.objectOneDigitLevel"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 18
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "SCC"
+    type: "java.lang.String"
+    propertyName: "scc"
+    propertyPath: "code"
+    entityName: "AccountCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: "SCC"
+    columnTitle: "SCC"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.scc"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 19
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Subject"
+    type: "java.lang.String"
+    propertyName: "subject"
+    propertyPath: "code"
+    entityName: "GeneralLedgerCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Subject"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.subject"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 20
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Subject Two Digit Level"
+    type: "java.lang.String"
+    propertyName: "subjectTwoDigitLevel"
+    propertyPath: "code"
+    entityName: "ExpenditureCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Subject Two Digit Level"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.subjectTwoDigitLevel"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 21
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "OPU"
+    type: "java.lang.String"
+    propertyName: "opu"
+    propertyPath: "code"
+    entityName: "GeneralLedgerCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: "OPU"
+    columnTitle: "OPU"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.opu"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 22
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Opu One Digit Level"
+    type: "java.lang.String"
+    propertyName: "opuOneDigitLevel"
+    propertyPath: "code"
+    entityName: "ExpenditureCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Opu One Digit Level"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.opuOneDigitLevel"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 23
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Job"
+    type: "java.lang.String"
+    propertyName: "job"
+    propertyPath: "code"
+    entityName: "ExpenditureCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Job"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.job"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 24
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "IL"
+    type: "java.lang.String"
+    propertyName: "il"
+    propertyPath: "code"
+    entityName: "ExpenditureCode"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: true
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: "IL"
+    columnTitle: "IL"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "code.il"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "code"
+    suppressRepeating: false
+    columnOrder: 25
+    permission: null

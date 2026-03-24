@@ -1,0 +1,378 @@
+---
+reportDefinition: !<org.ssdt_ohio.reporting.AdhocReportDefinition>
+  description: "User Report"
+  tags: ""
+  predefined: false
+  parameters: !<org.ssdt_ohio.reporting.AdhocReportParameters>
+    pageSize: "LETTER"
+    pageOrientation: "PORTRAIT"
+    outputFormat: "CSV"
+    templateName: "USPS User Report"
+    suppressDetail: false
+    showOptions: false
+    sortProperties: !<java.util.ArrayList>
+    - !<java.util.ArrayList>
+      propertyName: "username"
+      label: "Username"
+      ascending: true
+      controlBreak: false
+      pageBreak: false
+    queryParameters: !<java.util.LinkedHashMap> {}
+  title: "USPS User Report"
+  titleLabel: ""
+  querySpecification:
+    specification: "enabled.eq param(\"enabled\",\"\",\"Enabled Accounts Only? (true\
+      \ or false)\")\npasswordExpiration.notNull() "
+    querySpecParameters: !<java.util.ArrayList> []
+  entity: "org.ssdt_ohio.usps.model.user.User"
+  properties: !<java.util.ArrayList>
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Username"
+    type: "java.lang.String"
+    propertyName: "username"
+    propertyPath: null
+    entityName: "BaseUser"
+    sortOrder: 1
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Username"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 25
+    relativePropertyName: "username"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 1
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Name"
+    type: "java.lang.String"
+    propertyName: "name"
+    propertyPath: null
+    entityName: "BaseUser"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Name"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "name"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 2
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Title"
+    type: "java.lang.String"
+    propertyName: "title"
+    propertyPath: null
+    entityName: "BaseUser"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Title"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "title"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 3
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Email Address"
+    type: "java.lang.String"
+    propertyName: "address"
+    propertyPath: "email"
+    entityName: "EmailAddress"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: false
+    format: null
+    source: "FIELD"
+    label: "Email Address"
+    columnTitle: "Email Address"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 0
+    relativePropertyName: "email.address"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "email"
+    suppressRepeating: false
+    columnOrder: 4
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Created"
+    type: "java.util.Calendar"
+    propertyName: "created"
+    propertyPath: null
+    entityName: "BaseUser"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: "TIMESTAMP"
+    source: "FIELD"
+    label: ""
+    columnTitle: "Created"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 17
+    relativePropertyName: "created"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 5
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Account Expiration"
+    type: "java.util.Calendar"
+    propertyName: "accountExpiration"
+    propertyPath: null
+    entityName: "BaseUser"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: "CALENDAR"
+    source: "FIELD"
+    label: ""
+    columnTitle: "Account Expiration"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 11
+    relativePropertyName: "accountExpiration"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 6
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Password Expiration"
+    type: "java.util.Calendar"
+    propertyName: "passwordExpiration"
+    propertyPath: null
+    entityName: "BaseUser"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: "CALENDAR"
+    source: "FIELD"
+    label: ""
+    columnTitle: "Password Expiration"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 11
+    relativePropertyName: "passwordExpiration"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 7
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Enabled"
+    type: "java.lang.Boolean"
+    propertyName: "enabled"
+    propertyPath: null
+    entityName: "BaseUser"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Enabled"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 9
+    relativePropertyName: "enabled"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 8
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Locked"
+    type: "java.lang.Boolean"
+    propertyName: "locked"
+    propertyPath: null
+    entityName: "BaseUser"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Locked"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 8
+    relativePropertyName: "locked"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 9
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Last Login"
+    type: "java.util.Calendar"
+    propertyName: "lastLogin"
+    propertyPath: null
+    entityName: "BaseUser"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: "TIMESTAMP"
+    source: "FIELD"
+    label: ""
+    columnTitle: "Last Login"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 17
+    relativePropertyName: "lastLogin"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 10
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Description"
+    type: "java.lang.String"
+    propertyName: "description"
+    propertyPath: "roles"
+    entityName: "Right"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Roles"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 25
+    relativePropertyName: "description"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList>
+      - "roles"
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 11
+    permission: null
+  - !<org.ssdt_ohio.reporting.ReportablePropertyImpl>
+    description: "Two Factor Authentication"
+    type: "java.lang.Boolean"
+    propertyName: "twoFactorAuthentication"
+    propertyPath: null
+    entityName: "BaseUser"
+    sortOrder: 0
+    controlBreak: false
+    suppressed: false
+    pageBreak: false
+    ascending: true
+    function: null
+    baseClassProperty: true
+    format: null
+    source: "FIELD"
+    label: ""
+    columnTitle: "Two Factor Authentication"
+    alignment: "LEFT"
+    controlHeaderOnly: false
+    controlFooterOnly: false
+    detailHeaderOnly: false
+    width: 17
+    relativePropertyName: "twoFactorAuthentication"
+    dataSourcePath:
+      path: !<java.util.Collections$UnmodifiableRandomAccessList> []
+      currentPath: !<java.util.Collections$UnmodifiableRandomAccessList> []
+    suppressRepeating: false
+    columnOrder: 12
+    permission: null
